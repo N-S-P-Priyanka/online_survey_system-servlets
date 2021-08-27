@@ -1,0 +1,263 @@
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+
+body {
+  font-family: 'Oxygen', sans-serif;
+  background-color: lightblue;
+}
+
+header {
+  width: 50%;
+  margin: 20px auto 0px;
+  text-align: center;
+  background-color: #34495e;
+}
+
+#title {
+  font-size: 3rem;
+  background-color: #f1c40f;
+  color: #0f3cf1;
+  padding: 18px 10px;
+}
+
+#heading {
+  font-size: 1.6rem;
+  color: #e74c3c;
+  padding: 10px 10px 4px;
+}
+
+#description {
+  font-weight: bold;
+  color: #ecf0f1;
+  padding: 4px 10px 10px;
+}
+
+#survey-form {
+  background-color: #34495e;
+  color: #ecf0f1;
+  width: 50%;
+  margin: 0px auto 20px;
+  padding: 2px 24px 2px;
+  font-size: 1.1rem;
+}
+
+.block {
+  display: inline-block;
+}
+
+.clue {
+  font-size: 0.9rem;
+}
+
+.form-group {
+  margin: 28px 0px;
+}
+
+.selection div {
+  margin: 6px 0px;
+  display: flex;
+  align-items: center;
+}
+
+.form-group label,
+.form-group p {
+  font-weight: 800;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="number"],
+.form-group select,
+.form-group textarea,
+.form-group button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  font-family: 'Oxygen', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 8px 0px;
+  border: none;
+  border-radius: 5px;
+  background-color: #adb6be;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="number"],
+.form-group textarea {
+  transition: background 400ms ease;
+}
+
+.form-group input[type="text"]::placeholder,
+.form-group input[type="email"]::placeholder,
+.form-group input[type="number"]::placeholder,
+.form-group textarea::placeholder {
+  transition: all 400ms ease;
+  color: #686868;
+}
+
+.form-group input[type="text"]:focus::placeholder,
+.form-group input[type="email"]:focus::placeholder,
+.form-group input[type="number"]:focus::placeholder, 
+.form-group textarea:focus::placeholder {
+  opacity: 0.6;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="number"]:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  background-color: #fff;
+  outline: none;
+}
+
+.form-group input[type="radio"],
+.form-group input[type="checkbox"] {
+  display: inline-block;
+  height: 18px;
+  width: 18px;
+  margin-right: 6px;
+}
+
+.form-group p {
+  padding-bottom: 4px;
+}
+
+.form-group textarea {
+  font-size: 1rem;
+  width: 100%;
+  height: 200px;
+  resize: vertical;
+}
+
+select {
+  color: #686868;
+}
+
+.form-group button {
+  cursor: pointer;
+  color: #fff;
+  background-color: #14b959;
+  border: none;
+  font-weight: 600;
+  outline: none;
+  transition: all 400ms ease;
+}
+
+.form-group button:hover {
+  background-color: #18a050;
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    width: 100%;
+    margin-top: 0;
+  }
+
+  #survey-form {
+    width: 100%;
+    margin-bottom: 0;
+  }
+}
+</style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Oxygen&display=swap" rel="stylesheet">
+  <title>Student Survey Form</title>
+</head>
+
+<body>
+  <header>
+    <h1 id="title">Student Survey Form</h1>
+    <p id="description">Thank you for taking the time to help us improve the University</p>
+  </header>
+  <form action="responses4" method="post" id="survey-form">
+    <div class="form-group">
+      <label for="name" id="name-label" class="block">Name</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name" required>
+    </div>
+    <div class="form-group">
+      <label for="email" id="email-label" class="block">Email</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+    </div>
+    <div class="form-group">
+      <label for="number" id="number-label" class="block">Age <span class="clue">(optional)</span></label>
+      <input type="number" id="number" name="age" placeholder="Enter your age" min="16" max="28">
+    </div>
+    <div class="form-group">
+      <label for="dropdown" class="block">What is the program you are currently pursuing?</label>
+      <select name="program" id="dropdown">
+        <option value="" disabled selected>Select your program</option>
+        <option value="ug">Under Graduation (UG)</option> 
+        <option value="pg">Post Graduation (UG)</option> 
+        <option value="phd">Doctarate Programs (Ph.D)</option> 
+      </select>
+    </div>
+    <div class="form-group selection">
+      <p>Would your recommend ABC University to others?</p>
+      <div>
+        <input type="radio" name="choice" id="definitely" value="Definitely">
+        <label for="definitely">Definitely</label>
+      </div>
+      <div>
+        <input type="radio" name="choice" id="maybe" value="Maybe">
+        <label for="maybe">May be</label>
+      </div>
+      <div>
+        <input type="radio" name="choice" id="no" value="Not at all">
+        <label for="no">Not at all</label>
+      </div>
+    </div>
+    <div class="form-group selection">
+      <p>What do you want to be improved in ABC University? <span class="clue">(Check all that apply)</span></p>
+      <div>
+        <input type="checkbox" id="facility1" name="facilty" value="faculty">
+        <label for="facility1">Faculty</label>
+      </div>
+      <div>
+        <input type="checkbox" id="facility2" name="facilty" value="studentclubs">
+        <label for="facility2">Student Clubs</label>
+      </div>
+      <div>
+        <input type="checkbox" id="facility3" name="facilty" value="placements">
+        <label for="facility3">Placements</label>
+      </div>
+      <div>
+        <input type="checkbox" id="facility4" name="facilty" value="research">
+        <label for="facility4">Research</label>
+      </div>
+      <div>
+        <input type="checkbox" id="facility5" name="facilty" value="libraries">
+        <label for="facility5">Libraries</label>
+      </div>
+      <div>
+        <input type="checkbox" id="facility6" name="facilty" value="transportation">
+        <label for="facility6">Transportation</label>
+      </div>
+      <div>
+        <input type="checkbox" id="facility7" name="facilty" value="hostels">
+        <label for="facility7">Hostels</label>
+      </div>
+      <div>
+        <input type="checkbox" id="facility8" name="facilty" value="sportsfitness">
+        <label for="facility8">Sports and Fitness</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="suggestions" class="block">Any suggestions?</label>
+      <textarea name="suggestions" id="suggestions" placeholder="Enter your suggestions here..."></textarea>
+    </div>
+    <div class="form-group">
+      <button id="submit" type="submit">Submit</button>
+    </div>
+  </form>
+</body>

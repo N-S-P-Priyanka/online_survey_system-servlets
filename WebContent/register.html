@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Online Survey</title>
+ <link rel="stylesheet" type="text/css" href="loginstyle.css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
+
+</head>
+<script>
+function validateForm() {
+  if (document.myForm.Uname.value.length>32) {
+    window.alert("UserName must contain 32 letters only");
+    return false;
+  }
+  if(document.myForm.email.value.indexOf("@")<1){
+   window.alert("Invalid email address");
+   return false;
+  }
+  if(document.myForm.cPass.value!=document.myForm.Pass.value){
+   window.alert("Passwords doesn't match");
+   return false;
+}
+}
+</script>
+<body>
+
+<header class="site-header clearfix">
+ <nav>
+  <div class="logo">
+   <h1>Online Survey</h1>
+  </div>
+  <div class="menu"> 
+   <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="home.html">Templates</a></li>
+    <li><a href="aboutus.html">AboutUs</a></li>
+    <li><a href="contactus.html">ContactUs</a></li>
+   </ul>
+  </div>
+ </nav>
+
+</header>
+   <div class="loginbox">
+    <image src="img.png" class="avatar">
+	<h1>Register Here</h1>
+        <form name="myForm" method="post" action="Register" onsubmit="return validateForm()">   
+      
+<label>UserName:</label>    
+        <input type="text" name="Uname" id="Uname"  required> 
+        <label>Password: </label>  
+        <input type="Password" name="Pass" id="Pass" required>
+        <label>Confirm Password: </label>  
+        <input type="Password" name="cPass" id="cPass" required>
+  <label for="email">E mail</label>
+  <input type="text" id="email" name="email">
+
+<input type="submit" name="" value="Register" >
+<a href="login.html">Already have an account?</a>
+    </form>   
+    </div> 
+
+
+
+
+
+</body>
+</html>

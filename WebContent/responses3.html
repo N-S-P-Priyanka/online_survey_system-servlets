@@ -1,0 +1,466 @@
+<style>
+/**will be back for this part*/
+/* @import url(https://fonts.googleapis.com/css?family=Montserrat|Open+Sans" rel="stylesheet); */
+
+*{
+  box-sizing: border-box;
+  margin:0;
+  padding:0;
+}
+
+*:focus {
+  outline: none;
+}
+
+html, body{
+  color:#fff;
+  font-size:15px;
+  font-weight:normal;
+}
+
+ul{
+  list-style:none;
+}
+
+.main{
+  background: #0f0c29; 
+  background: -webkit-linear-gradient(to left, #24243e, #302b63, #0f0c29);  
+  background: linear-gradient(to left, #24243e, #302b63, #0f0c29); 
+}
+
+/* clickable tabs*/
+.tabs{
+  position:relative;
+  margin:25px 0;
+  clear:both;
+  min-height:13px;
+  padding: 0.5em;
+}
+
+.tab{
+  float:left;
+}
+
+.tab label{
+  background-color:#DCDCDC;
+  color:#0f0c29;
+  padding:10px 35px;
+  border:2px solid #ccc;
+  border-radius:4px;
+  margin-left:-1px;
+  position:relative;
+  left:1px;
+}
+
+.tab [type=radio]{
+  display:none;
+}
+
+[type=radio]:checked ~ label{
+  background-color:#fff;
+  border: 2px solid #fff;
+}
+
+.inner{
+/*   border:1px solid red;
+  border-radius: 5px; */
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:space-between;
+/*   padding:2em; */
+  margin: 0 auto;
+  width: 80%;
+  max-width: 900px;
+  padding: 10px;
+  padding-top: 20px;
+}
+
+p#description{
+  font-size:20px;
+  padding: 2px;
+  padding-bottom: 4px;
+}
+i{
+  font-size:16px;
+}
+
+h1{
+  font-size:29px;
+  text-align:center;
+  color: #F5F5F5;
+  font-weight:normal;
+  padding: 1em;
+}
+
+.labels{
+  display:inline-block;
+  text-align: right;
+  width: 40%;
+  padding: 4px;
+  vertical-align: top;
+  margin-top: 10px;
+}
+
+.rightTab{
+  display: inline-block;
+  text-align: left;
+  width: 55%;
+  padding: 6px;
+  vertical-align: middle;
+  
+}
+
+.input-field{
+  padding:1em;
+  width:36.5em;
+  border-radius:4px;
+  border:1px solid #fff;
+  margin: 10px;
+}
+
+input[type="checkbox"], #submit{
+  cursor:pointer;
+}
+
+input.ratings {
+    margin-right: 7px;
+}
+
+form{
+  margin-top:10px;
+  margin-bottom:10px;
+}
+
+#submit{
+  width:96px;
+  height:40px;
+  font-size:14px;
+  border-radius:4px;
+  border: 1px solid black;
+  background:white;
+  color:#0f0c29;
+  margin-left:24em;
+}
+
+.dropdown-level{
+  height: 35px;
+  width: 140px;
+  padding: 5px;
+  margin: 10px;  
+  margin-top: 15px;
+  border: 1px solid #fff;
+  border-radius: 4px;
+}
+
+.number-level{
+  margin: 10px;  
+  margin-top: 15px;
+  border-radius:4px;
+  border:1px solid #fff;
+  height: 35px;
+  padding:5px;
+}
+
+.checkbox, .radio{
+  padding-bottom:10px;
+  margin-left:7px;
+}
+
+#improvement, #recommendations{
+  padding-top:1em;
+}
+
+#comments{
+  height:200px;
+}
+
+#extra{
+  display: flex;
+  flex-direction: column;
+}
+
+small{
+  padding-top:3px;
+}
+.form-group,.modal {
+  margin: 0 auto 1.25rem auto;
+  padding: 0.25rem;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+
+.button:hover {
+  background: #06D85F;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+a:link {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:visited {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+}
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 50%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+@media screen and (max-width: 800px){
+  .box{
+    width: 70%;
+  }
+  .popup{
+    width: 70%;
+  }
+}
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+</style>
+<div class="main">
+  <h1 id="title">Employee Satisfaction Survey</h1>
+  <div class="inner">
+    <p id="description"> Please let us know how satisfied you are with your job and the company.</br>
+      <!--Your feedback will help us make a happier place for you to work.-->
+    </p>
+<p><i>All answers will be kept strictly confidential.</i></p>
+    <form id="survey-form" method="post" action="display3">
+      <div class="leftTab">
+        <div class="labels">
+          <label for="name" id="name-label">Name*:</label>
+        </div>
+        <div class="rightTab">
+          <input autofocus name="name" type="text" id="name" placeholder="Enter your full name" class="input-field" autocomplete="name" />
+        </div>
+      </div>
+
+      <div class="leftTab">
+        <div class="labels">
+          <label for="email" id="email-label"> Email*:</label>
+        </div>
+        <div class="rightTab">
+          <input autofocus name="email" type="email" id="email" placeholder="Enter your email address" class="input-field" autocomplete="email"/>
+        </div>
+      </div>
+
+      <div class="leftTab">
+        <div class="labels">
+          <label for="jLevel" id="level-label">Job Level:</label>
+        </div>
+        <div class="rightTab">
+          <select name="dropdown" id="jLevel" class="dropdown-level">
+              <option disabled value>Select an option</option>
+              <option value="junior">Junior</option>
+              <option value="senior">Senior</option>
+              <option value="lead">Lead</option>
+              <option value="manager">Manager</option>
+              <option value="executive">Executive</option>
+              <option value="other">Other</option>
+            </select>
+        </div>
+      </div>
+
+      <div class="leftTab">
+        <div class="labels">
+          <label for="number" id="number-label">How long have you been working for the company?*:</label>
+        </div>
+        <div class="rightTab">
+          <input autofocus id="number" class="number-level" name="number" type="number" min="1" max="25" value="1"/>
+        </div>
+      </div>
+
+      <div class="leftTab">
+        <div class="labels">
+          <label for="assessment1" id="tab1-label"> How meaniful is your work?*</label>
+        </div>
+        <div class="rightTab">
+          <div class="tabs">
+            <div class="tab">
+              <input class="assessment" id="tab-1" type="radio" name="tab-group-1" />
+              <label for="tab-1">0</label>
+              
+            </div>
+
+            <div class="tab">
+              <input class="assessment" id="tab-2" type="radio" name="tab-group-1" />
+              <label for="tab-2">1</label>
+            </div>
+
+            <div class="tab">
+              <input class="assessment" id="tab-3" type="radio" name="tab-group-1" />
+              <label for="tab-3">2</label>
+            </div>
+
+            <div class="tab">
+              <input class="assessment" id="tab-4" type="radio" name="tab-group-1" />
+              <label for="tab-4">3</label>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+
+      <div class="leftTab">
+        <div class="labels">
+          <label for="assessment2" id="tab2-label">How much does your job give you a sense of personal satisfaction?*:</label>
+        </div>
+        <div class="rightTab">
+          
+          <div class="tabs">
+            <div class="tab">
+              <input class="assessment" id="tab-5" type="radio" name="tab-group-2" />
+              <label for="tab-5">0</label>
+            </div>
+
+            <div class="tab">
+              <input class="assessment" id="tab-6" type="radio" name="tab-group-2" />
+              <label for="tab-6">1</label>
+            </div>
+
+            <div class="tab">
+              <input class="assessment" id="tab-7" type="radio" name="tab-group-2" />
+              <label for="tab-7">2</label>
+            </div>
+
+            <div class="tab">
+              <input class="assessment" id="tab-8" type="radio" name="tab-group-2" />
+              <label for="tab-8">3</label>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="leftTab">
+        <div class="labels">
+          <label for="ratings" id="radio-label">How likely are you to look within the company for your next position?*:</label>
+        </div>
+        <div class="rightTab">
+          <ul id="recommendations">
+            <li class="radio"><label><input name="radio-buttons" type="radio" value="1" class="ratings"/>Not Likely</label></li>
+            <li class="radio"><label><input name="radio-buttons" type="radio" value="2" class="ratings"/>Maybe</label></li>
+            <li class="radio"><label><input name="radio-buttons" type="radio" value="3" class="ratings"/>Extremely Likely</label></li>
+            <li class="radio"><label><input name="radio-buttons" type="radio" value="4" class="ratings"/>Prefer Not To Say</label></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="leftTab">
+        <div class="labels">
+          <label for="improvement" id="check-label">Things that should be improved in the future</br> (Check all that apply):</label>
+        </div>
+        <div class="rightTab">
+          <ul id="improvement">
+            <li class="checkbox"><label><input name="check-boxes" class="ratings" value="1" type="checkbox"/></label>Opportunities for Growth</li>
+            <li class="checkbox"><label><input name="check-boxes" class="ratings" value="2" type="checkbox"/></label>Compensation and Benefits</li>
+            <li class="checkbox"><label><input name="check-boxes" class="ratings" value="3" type="checkbox"/></label>Career Development</li>
+            <li class="checkbox"><label><input name="check-boxes" class="ratings" value="4" type="checkbox"/></label>Relationship with Management</li>
+            <li class="checkbox"><label><input name="check-boxes" class="ratings" value="5" type="checkbox"/></label>Work Environment</li>
+            <li class="checkbox"><label><input name="check-boxes" class="ratings" value="6" type="checkbox"/></label>Diversity and Inclusion</li>
+            <li class="checkbox"><label><input name="check-boxes" class="ratings" value="7" type="checkbox"/></label>Food and Snacks (Kitchen)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="leftTab">
+        <div class="labels">
+          <label for="comments" id="extra"> Any Comments, Concerns or Suggestions?<small> Remember that answers will be treated with the strictest confidence.</small></label>
+        </div>
+        <div class="rightTab">
+          <textarea name="comment" id="comments" class="input-field" placeholder="Enter your comment here"></textarea>
+        </div>
+      </div>
+      <center><button type="submit" id="submit">Get Responses</button><br><br>
+      <button type="submit" id="submit" class="submit-button"><a class="button" href="#popup1" style="color:black">Get Link</a></button></center>
+</div>
+        <!-- Multi-line Text Input Control -->
+        <div id="popup1" class="overlay">
+	        <div class="popup" style="font-size:14px">
+		       <h2>http://localhost:8082/Online%20survey%20system/form3.html</h2>
+		       <h3 style="color:black">This is the link of this form</h3>
+		       <h4 style="color:black">Share it with your contacts to get responses</h4>
+		       <a class="close" href="#">&times;</a>
+		    </div>
+		</div>
+  </div>
+  </form>
+</div>

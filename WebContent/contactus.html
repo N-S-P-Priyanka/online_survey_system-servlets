@@ -1,0 +1,146 @@
+<html>
+<body>
+
+<header class="site-header clearfix">
+ <nav>
+  <div class="logo">
+   <h1>Online Survey</h1>
+  </div>
+  <div class="menu"> 
+   <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="main.html">Templates</a></li>
+    <li><a href="aboutus.html">AboutUs</a></li>
+    <li><a href="login.html">login</a></li>
+   </ul>
+  </div>
+ </nav>
+</header>
+<div class="container">
+  <div style="text-align:center">
+    <h2>Contact Us</h2>
+    <p>Swing by for a cup of coffee, or leave us a message:</p>
+  </div>
+  <div class="row">
+    <center><div class="column">
+      <img src="contacti.jfif" style="width:50%; height:50%">
+    </div></center>
+    <div class="column">
+      
+	<form name="login" action="home.html" method="post" onsubmit="validateForm()">
+        <label for="fname">First Name</label>
+        <input type="text" id="fname" name="firstname" placeholder="Your name..">
+        <label for="lname">Last Name</label>
+        <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+        <label for="country">Country</label>
+        <select id="country" name="country">
+	  <option value="--select one--">--Select one--</option>
+          <option value="australia">Australia</option>
+          <option value="canada">Canada</option>
+          <option value="usa">USA</option>
+          <option value="india">india</option>
+	  <option value="south korea">south korea</option>
+	  <option value="japan">japan</option>
+	  <option value="philippines">philippines</option>
+	  <option value="vietnam">vietnam</option>
+	  <option value="Thailand">Thailand</option>
+        </select>
+        <label for="subject">Subject</label>
+        <textarea id="subject" name="subject" placeholder="Write something.." style="height:170px"></textarea>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+</html>
+
+<style>
+ body{
+  box-sizing: border-box;
+}
+
+
+nav{
+    width: 100%; height: 100px;
+    display: flex; color: white; 
+}
+.logo{
+    width: 60%;
+    height: 100px;
+    color: #ff9933;
+}
+.logo h1{
+    line-height: 100px;
+    padding-left: 50px;
+}
+.menu{
+     width: 50%; height:100px;
+}
+.menu ul{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items:  center;
+}
+.menu ul li{
+    list-style: none;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.menu ul li:hover{
+       text-color: #f1f1f1;
+} 
+/* Style inputs */
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 10px;
+}
+
+.column {
+  float: left;
+  width: 99%;
+  margin-top: 6px;
+  padding: 20px;
+}
+
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media screen and (max-width: 600px) {
+  .column, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+</style>

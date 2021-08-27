@@ -1,0 +1,386 @@
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+
+body {
+  font-family: 'Oxygen', sans-serif;
+  background-color: lightblue;
+}
+
+header {
+  width: 50%;
+  margin: 20px auto 0px;
+  text-align: center;
+  background-color: #34495e;
+}
+
+#title {
+  font-size: 3rem;
+  background-color: #f1c40f;
+  color: #0f3cf1;
+  padding: 18px 10px;
+}
+
+#heading {
+  font-size: 1.6rem;
+  color: #e74c3c;
+  padding: 10px 10px 4px;
+}
+
+#description {
+  font-weight: bold;
+  color: #ecf0f1;
+  padding: 4px 10px 10px;
+}
+
+#survey-form {
+  background-color: #34495e;
+  color: #ecf0f1;
+  width: 50%;
+  margin: 0px auto 20px;
+  padding: 2px 24px 2px;
+  font-size: 1.1rem;
+}
+
+.block {
+  display: inline-block;
+}
+
+.clue {
+  font-size: 0.9rem;
+}
+
+.form-group {
+  margin: 28px 0px;
+}
+
+.selection div {
+  margin: 6px 0px;
+  display: flex;
+  align-items: center;
+}
+
+.form-group label,
+.form-group p {
+  font-weight: 800;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="number"],
+.form-group select,
+.form-group textarea,
+.form-group button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  font-family: 'Oxygen', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 8px 0px;
+  border: none;
+  border-radius: 5px;
+  background-color: #adb6be;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="number"],
+.form-group textarea {
+  transition: background 400ms ease;
+}
+
+.form-group input[type="text"]::placeholder,
+.form-group input[type="email"]::placeholder,
+.form-group input[type="number"]::placeholder,
+.form-group textarea::placeholder {
+  transition: all 400ms ease;
+  color: #686868;
+}
+
+.form-group input[type="text"]:focus::placeholder,
+.form-group input[type="email"]:focus::placeholder,
+.form-group input[type="number"]:focus::placeholder, 
+.form-group textarea:focus::placeholder {
+  opacity: 0.6;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="number"]:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  background-color: #fff;
+  outline: none;
+}
+
+.form-group input[type="radio"],
+.form-group input[type="checkbox"] {
+  display: inline-block;
+  height: 18px;
+  width: 18px;
+  margin-right: 6px;
+}
+
+.form-group p {
+  padding-bottom: 4px;
+}
+
+.form-group textarea {
+  font-size: 1rem;
+  width: 100%;
+  height: 200px;
+  resize: vertical;
+}
+
+select {
+  color: #686868;
+}
+
+.form-group button {
+  cursor: pointer;
+  color: #fff;
+  background-color: #14b959;
+  border: none;
+  font-weight: 600;
+  outline: none;
+  transition: all 400ms ease;
+}
+
+.form-group button:hover {
+  background-color: #18a050;
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    width: 100%;
+    margin-top: 0;
+  }
+
+  #survey-form {
+    width: 100%;
+    margin-bottom: 0;
+  }
+}
+.form-group,.modal {
+  margin: 0 auto 1.25rem auto;
+  padding: 0.25rem;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+
+.button:hover {
+  background: #06D85F;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+a:link {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:visited {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+}
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 50%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+@media screen and (max-width: 800px){
+  .box{
+    width: 70%;
+  }
+  .popup{
+    width: 70%;
+  }
+}
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+</style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Oxygen&display=swap" rel="stylesheet">
+  <title>Student Survey Form</title>
+</head>
+
+<body>
+  <header>
+    <h1 id="title">Student Survey Form</h1>
+    <p id="description">Thank you for taking the time to help us improve the University</p>
+  </header>
+  <form action="display4" method="post" id="survey-form">
+    <div class="form-group">
+      <label for="name" id="name-label" class="block">Name</label>
+      <input type="text" id="name" placeholder="Enter your name"  >
+    </div>
+    <div class="form-group">
+      <label for="email" id="email-label" class="block">Email</label>
+      <input type="email" id="email" placeholder="Enter your email"  >
+    </div>
+    <div class="form-group">
+      <label for="number" id="number-label" class="block">Age <span class="clue">(optional)</span></label>
+      <input type="number" id="number" placeholder="Enter your age" min="16" max="28">
+    </div>
+    <div class="form-group">
+      <label for="dropdown" class="block">What is the program you are currently pursuing?</label>
+      <select name="program" id="dropdown">
+        <option value="" disabled selected>Select your program</option>
+        <option value="ug">Under Graduation (UG)</option> 
+        <option value="pg">Post Graduation (UG)</option> 
+        <option value="phd">Doctarate Programs (Ph.D)</option> 
+      </select>
+    </div>
+    <div class="form-group selection">
+      <p>Would your recommend ABC University to others?</p>
+      <div>
+        <input type="radio" name="choice" id="definitely" value="10">
+        <label for="definitely">Definitely</label>
+      </div>
+      <div>
+        <input type="radio" name="choice" id="maybe" value="5">
+        <label for="maybe">May be</label>
+      </div>
+      <div>
+        <input type="radio" name="choice" id="no" value="0">
+        <label for="no">Not at all</label>
+      </div>
+    </div>
+    <div class="form-group selection">
+      <p>What do you want to be improved in ABC University? <span class="clue">(Check all that apply)</span></p>
+      <div>
+        <input type="checkbox" id="facility1" name="facilty1" value="faculty">
+        <label for="facility1">Faculty</label>
+      </div>
+      <div>
+        <input type="checkbox" id="facility2" name="facilty2" value="studentclubs">
+        <label for="facility2">Student Clubs</label>
+      </div>
+      <div>
+        <input type="checkbox" id="facility3" name="facilty3" value="placements">
+        <label for="facility3">Placements</label>
+      </div>
+      <div>
+        <input type="checkbox" id="facility4" name="facilty4" value="research">
+        <label for="facility4">Research</label>
+      </div>
+      <div>
+        <input type="checkbox" id="facility5" name="facilty5" value="libraries">
+        <label for="facility5">Libraries</label>
+      </div>
+      <div>
+        <input type="checkbox" id="facility6" name="facilty6" value="transportation">
+        <label for="facility6">Transportation</label>
+      </div>
+      <div>
+        <input type="checkbox" id="facility7" name="facilty7" value="hostels">
+        <label for="facility7">Hostels</label>
+      </div>
+      <div>
+        <input type="checkbox" id="facility8" name="facilty8" value="sportsfitness">
+        <label for="facility8">Sports and Fitness</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="suggestions" class="block">Any suggestions?</label>
+      <textarea name="suggestions" id="suggestions" placeholder="Enter your suggestions here..."></textarea>
+    </div>
+    <div class="form-group">
+      <button id="submit" type="submit">Get Responses</button>
+    </div>
+    <div class="form-group">
+	<center ><button type="submit" id="submit" class="submit-button"><a class="button" href="#popup1" style="color:black">Get Link</a></button></center>
+</div>
+        <!-- Multi-line Text Input Control -->
+        <div id="popup1" class="overlay">
+	        <div class="popup" style="font-size:15px">
+		       <h2>http://localhost:8082/Online%20survey%20system/form4.html</h2>
+		       <h3 style="color:black">This is the link of this form</h3>
+		       <h4 style="color:black">Share it with your contacts to get responses</h4>
+		       <a class="close" href="#">&times;</a>
+		    </div>
+		</div>
+  </form>
+</body>
